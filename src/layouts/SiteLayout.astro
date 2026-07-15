@@ -1,0 +1,43 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  bodyClass?: string;
+}
+
+const { title, description, bodyClass = "" } = Astro.props;
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+const projectsPath = `${base}projects/`;
+const onProjects = Astro.url.pathname.startsWith(projectsPath);
+// Navigation is intentionally hidden for now. Set this to true to restore it.
+const showNavigation = false;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>{title}</title>
+  </head>
+  <body class={bodyClass}>
+    {
+      showNavigation && (
+        <header class="site-nav">
+          <nav aria-label="Primary navigation">
+            <a href={base} aria-current={onProjects ? undefined : "page"}>About</a>
+            <a href={projectsPath} aria-current={onProjects ? "page" : undefined}>Projects</a>
+          </nav>
+        </header>
+      )
+    }
+    <slot />
+  </body>
+</html>

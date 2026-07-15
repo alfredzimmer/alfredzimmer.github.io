@@ -1,0 +1,311 @@
+@font-face {
+  font-family: "Benne";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/benne/v24/L0xzDFAhn18E6Wj2nN8.woff2") format("woff2");
+}
+
+:root {
+  --paper: #ffffff;
+  --ink: #383838;
+  --heading: #0a0a0a;
+  --muted: #6d6d6d;
+  --quiet: #8d8d8a;
+  --line: #cccccc;
+  --reading-width: 740px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Benne", Georgia, serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+}
+
+body.home {
+  height: 100%;
+  overflow: hidden;
+}
+
+.site-nav {
+  position: fixed;
+  z-index: 10;
+  top: 34px;
+  left: 50%;
+  width: min(calc(100% - 48px), var(--reading-width));
+  transform: translateX(-50%);
+}
+
+.site-nav nav {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+}
+
+.site-nav a {
+  color: var(--heading);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-nav a[aria-current="page"] {
+  color: var(--muted);
+}
+
+.site-nav a:hover {
+  font-style: italic;
+}
+
+.home-main {
+  width: 100%;
+  height: 100svh;
+  padding: clamp(68px, 8vw, 96px) clamp(24px, 6vw, 80px) 32px;
+  display: grid;
+  place-items: start center;
+}
+
+.about-copy {
+  width: min(100%, var(--reading-width));
+}
+
+h1,
+h2,
+h3 {
+  color: var(--heading);
+  font-family: inherit;
+}
+
+h1 {
+  margin: 0;
+  font-size: 47px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.about-copy h1 {
+  margin-bottom: clamp(28px, 5vh, 44px);
+}
+
+.about-copy p {
+  margin: 0 0 clamp(16px, 3.5vh, 28px);
+}
+
+.about-copy p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: var(--heading);
+  text-decoration-color: var(--heading);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.14em;
+}
+
+a:focus-visible {
+  outline: 1px solid var(--heading);
+  outline-offset: 4px;
+}
+
+::selection {
+  background: var(--heading);
+  color: var(--paper);
+}
+
+.page-main {
+  width: min(calc(100% - 48px), var(--reading-width));
+  margin: 0 auto;
+  padding: 154px 0 96px;
+}
+
+.page-heading {
+  margin-bottom: 54px;
+}
+
+.page-heading p {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.project-list {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+
+.project-list li {
+  border-bottom: 1px solid var(--line);
+}
+
+.project-list a {
+  padding: 28px 0 30px;
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  gap: 18px;
+  text-decoration: none;
+}
+
+.project-list a:hover strong {
+  font-style: italic;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.project-number,
+.project-list time {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.project-summary {
+  display: grid;
+  gap: 6px;
+}
+
+.project-summary strong {
+  color: var(--heading);
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.project-summary > span {
+  color: var(--ink);
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 48px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.project-heading {
+  margin-bottom: 58px;
+}
+
+.project-heading > p {
+  margin: 26px 0 0;
+  font-size: 23px;
+  line-height: 1.4;
+}
+
+.project-meta {
+  margin-top: 22px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.project-links {
+  margin-top: 22px;
+  display: flex;
+  gap: 20px;
+}
+
+.prose {
+  padding-top: 44px;
+  border-top: 1px solid var(--line);
+}
+
+.prose h2 {
+  margin: 44px 0 16px;
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+.prose h3 {
+  margin: 36px 0 14px;
+  font-size: 24px;
+}
+
+.prose p,
+.prose ul,
+.prose ol {
+  margin: 0 0 22px;
+}
+
+.prose li + li {
+  margin-top: 7px;
+}
+
+@media (max-width: 560px) {
+  body {
+    font-size: 17px;
+  }
+
+  .site-nav {
+    top: 24px;
+    width: calc(100% - 36px);
+  }
+
+  .site-nav nav {
+    gap: 26px;
+  }
+
+  .home-main {
+    padding-inline: 24px;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  .page-main {
+    width: calc(100% - 36px);
+    padding-top: 124px;
+  }
+
+  .project-list a {
+    grid-template-columns: 34px 1fr;
+    gap: 12px;
+  }
+
+  .project-list time {
+    display: none;
+  }
+
+  .project-summary strong {
+    font-size: 22px;
+  }
+}
+
+@media (max-height: 560px) {
+  .home {
+    font-size: 14px;
+  }
+
+  .home .site-nav {
+    top: 16px;
+  }
+
+  .home-main {
+    padding-top: 56px;
+  }
+
+  .about-copy h1 {
+    margin-bottom: 18px;
+    font-size: 34px;
+  }
+
+  .about-copy p {
+    margin-bottom: 13px;
+  }
+}

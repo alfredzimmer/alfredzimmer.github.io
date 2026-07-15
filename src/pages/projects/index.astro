@@ -1,0 +1,41 @@
+---
+import { getCollection } from "astro:content";
+import SiteLayout from "../../layouts/SiteLayout.astro";
+
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+const projects = (await getCollection("projects", ({ data }) => !data.draft)).sort(
+  (a, b) => a.data.order - b.data.order || b.data.date.valueOf() - a.data.date.valueOf(),
+);
+---
+
+<SiteLayout
+  title="Projects — Alfred"
+  description="Selected projects designed and built by Alfred."
+  bodyClass="content-page"
+>
+  <main class="page-main">
+    <header class="page-heading">
+      <h1>Projects</h1>
+      <p>Selected things I've worked on.</p>
+    </header>
+
+    <ol class="project-list">
+      {
+        projects.map((project, index) => (
+          <li>
+            <a href={`${base}projects/${project.id}/`}>
+              <span class="project-number">{String(index + 1).padStart(2, "0")}</span>
+              <span class="project-summary">
+                <strong>{project.data.title}</strong>
+                <span>{project.data.description}</span>
+              </span>
+              <time datetime={project.data.date.toISOString()}>{project.data.date.getFullYear()}</time>
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+  </main>
+</SiteLayout>
