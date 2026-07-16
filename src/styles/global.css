@@ -155,9 +155,7 @@ a:focus-visible {
 
 .project-list a {
   padding: 28px 0 30px;
-  display: grid;
-  grid-template-columns: 48px 1fr auto;
-  gap: 18px;
+  display: block;
   text-decoration: none;
 }
 
@@ -165,12 +163,6 @@ a:focus-visible {
   font-style: italic;
   text-decoration: underline;
   text-underline-offset: 0.15em;
-}
-
-.project-number,
-.project-list time {
-  color: var(--muted);
-  font-style: italic;
 }
 
 .project-summary {
@@ -186,64 +178,6 @@ a:focus-visible {
 
 .project-summary > span {
   color: var(--ink);
-}
-
-.back-link {
-  display: inline-block;
-  margin-bottom: 48px;
-  color: var(--muted);
-  font-style: italic;
-}
-
-.project-heading {
-  margin-bottom: 58px;
-}
-
-.project-heading > p {
-  margin: 26px 0 0;
-  font-size: 23px;
-  line-height: 1.4;
-}
-
-.project-meta {
-  margin-top: 22px;
-  display: flex;
-  justify-content: space-between;
-  gap: 24px;
-  color: var(--muted);
-  font-style: italic;
-}
-
-.project-links {
-  margin-top: 22px;
-  display: flex;
-  gap: 20px;
-}
-
-.prose {
-  padding-top: 44px;
-  border-top: 1px solid var(--line);
-}
-
-.prose h2 {
-  margin: 44px 0 16px;
-  font-size: 30px;
-  line-height: 1.2;
-}
-
-.prose h3 {
-  margin: 36px 0 14px;
-  font-size: 24px;
-}
-
-.prose p,
-.prose ul,
-.prose ol {
-  margin: 0 0 22px;
-}
-
-.prose li + li {
-  margin-top: 7px;
 }
 
 @media (max-width: 560px) {
@@ -271,15 +205,6 @@ a:focus-visible {
   .page-main {
     width: calc(100% - 36px);
     padding-top: 124px;
-  }
-
-  .project-list a {
-    grid-template-columns: 34px 1fr;
-    gap: 12px;
-  }
-
-  .project-list time {
-    display: none;
   }
 
   .project-summary strong {

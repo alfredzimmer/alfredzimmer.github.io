@@ -18,12 +18,12 @@ Global colors, typography, spacing, and responsive behavior are in
 ## Add a project
 
 Duplicate `src/content/projects/_template.md`, give the copy a short filename
-such as `weather-app.md`, and replace its frontmatter and writing. The filename
-becomes the project URL.
+such as `weather-app.md`, and replace its title, description, and URL. Clicking
+the project on the site opens that URL directly.
 
 Set `draft: false` when the project is ready to appear on the Projects page.
-Use `order` to control its position; lower numbers appear first. Delete the
-included `portfolio.md` example whenever you no longer need it.
+Use `order` to control its position; lower numbers appear first. Until then,
+the Projects page remains empty.
 
 ## Local development
 

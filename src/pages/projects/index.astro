@@ -2,17 +2,14 @@
 import { getCollection } from "astro:content";
 import SiteLayout from "../../layouts/SiteLayout.astro";
 
-const base = import.meta.env.BASE_URL.endsWith("/")
-  ? import.meta.env.BASE_URL
-  : `${import.meta.env.BASE_URL}/`;
 const projects = (await getCollection("projects", ({ data }) => !data.draft)).sort(
-  (a, b) => a.data.order - b.data.order || b.data.date.valueOf() - a.data.date.valueOf(),
+  (a, b) => a.data.order - b.data.order || a.data.title.localeCompare(b.data.title),
 );
 ---
 
 <SiteLayout
-  title="Projects — Alfred"
-  description="Selected projects designed and built by Alfred."
+  title="Projects Alfred"
+  description="Some of the things I worked on if you care to take a look."
   bodyClass="content-page"
 >
   <main class="page-main">
@@ -23,15 +20,13 @@ const projects = (await getCollection("projects", ({ data }) => !data.draft)).so
 
     <ol class="project-list">
       {
-        projects.map((project, index) => (
+        projects.map((project) => (
           <li>
-            <a href={`${base}projects/${project.id}/`}>
-              <span class="project-number">{String(index + 1).padStart(2, "0")}</span>
+            <a href={project.data.url}>
               <span class="project-summary">
                 <strong>{project.data.title}</strong>
                 <span>{project.data.description}</span>
               </span>
-              <time datetime={project.data.date.toISOString()}>{project.data.date.getFullYear()}</time>
             </a>
           </li>
         ))
