@@ -1,9 +1,13 @@
+/* Self-hosted copy of Benne with corrected vertical metrics (ascent 630 -> 756,
+   descent 370 -> 340; renamed "Benne Web" per the OFL). Upstream under-declares
+   its ascent, and Safari draws ::selection boxes from the font's declared metrics
+   — clipping letter tops — with no support for ascent-override to fix it in CSS. */
 @font-face {
   font-family: "Benne";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("https://fonts.gstatic.com/s/benne/v24/L0xzDFAhn18E6Wj2nN8.woff2") format("woff2");
+  src: url("/fonts/benne-web.woff2") format("woff2");
 }
 
 :root {
