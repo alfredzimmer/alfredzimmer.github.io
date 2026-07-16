@@ -125,6 +125,16 @@ a:focus-visible {
   color: var(--paper);
 }
 
+/* Grid items are WebKit selection roots, which stops Safari from painting
+   selection "gaps" between blocks across the full viewport width. */
+.about-copy,
+.page-main,
+.page-heading,
+.project-list,
+.project-list li {
+  display: grid;
+}
+
 .page-main {
   width: min(calc(100% - 48px), var(--reading-width));
   margin: 0 auto;
@@ -154,7 +164,7 @@ a:focus-visible {
 
 .project-list a {
   padding: 28px 0 30px;
-  display: block;
+  display: grid;
   text-decoration: none;
 }
 
