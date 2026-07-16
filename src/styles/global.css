@@ -72,11 +72,10 @@ body.home {
 }
 
 .home-main {
-  width: 100%;
+  width: min(calc(100% - 48px), var(--reading-width));
+  margin: 0 auto;
   height: 100svh;
-  padding: clamp(68px, 8vw, 96px) clamp(24px, 6vw, 80px) 32px;
-  display: grid;
-  place-items: start center;
+  padding: 154px 0 32px;
 }
 
 .about-copy {
@@ -194,14 +193,11 @@ a:focus-visible {
     gap: 26px;
   }
 
-  .home-main {
-    padding-inline: 24px;
-  }
-
   h1 {
     font-size: 40px;
   }
 
+  .home-main,
   .page-main {
     width: calc(100% - 36px);
     padding-top: 124px;
@@ -215,19 +211,6 @@ a:focus-visible {
 @media (max-height: 560px) {
   .home {
     font-size: 14px;
-  }
-
-  .home .site-nav {
-    top: 16px;
-  }
-
-  .home-main {
-    padding-top: 56px;
-  }
-
-  .about-copy h1 {
-    margin-bottom: 18px;
-    font-size: 34px;
   }
 
   .about-copy p {
