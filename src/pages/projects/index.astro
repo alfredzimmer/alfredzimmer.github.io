@@ -2,35 +2,38 @@
 import { getCollection } from "astro:content";
 import SiteLayout from "../../layouts/SiteLayout.astro";
 
-const projects = (await getCollection("projects", ({ data }) => !data.draft)).sort(
-  (a, b) => a.data.order - b.data.order || a.data.title.localeCompare(b.data.title),
+const projects = (
+    await getCollection("projects", ({ data }) => !data.draft)
+).sort(
+    (a, b) =>
+        a.data.order - b.data.order || a.data.title.localeCompare(b.data.title),
 );
 ---
 
 <SiteLayout
-  title="Projects"
-  description="Selected works by Alfred."
-  bodyClass="content-page"
+    title="Projects"
+    description="Selected works by Alfred."
+    bodyClass="content-page"
 >
-  <main class="page-main">
-    <header class="page-heading">
-      <h1>Projects</h1>
-      <p>Some of the things I've worked on if you care to take a look.</p>
-    </header>
+    <main class="page-main">
+        <header class="page-heading">
+            <h1>Projects</h1>
+            <p>Some things I've worked on if you care to take a look.</p>
+        </header>
 
-    <ol class="project-list">
-      {
-        projects.map((project) => (
-          <li>
-            <a href={project.data.url}>
-              <span class="project-summary">
-                <strong>{project.data.title}</strong>
-                <span>{project.data.description}</span>
-              </span>
-            </a>
-          </li>
-        ))
-      }
-    </ol>
-  </main>
+        <ol class="project-list">
+            {
+                projects.map((project) => (
+                    <li>
+                        <a href={project.data.url}>
+                            <span class="project-summary">
+                                <strong>{project.data.title}</strong>
+                                <span>{project.data.description}</span>
+                            </span>
+                        </a>
+                    </li>
+                ))
+            }
+        </ol>
+    </main>
 </SiteLayout>
