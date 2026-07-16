@@ -1,3 +1,8 @@
 {
-  "extends": "astro/tsconfigs/strict"
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "moduleResolution": "bundler", // or "bundler" depending on your framework
+    "skipLibCheck": true
+  }
 }

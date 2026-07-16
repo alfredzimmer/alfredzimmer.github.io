@@ -28,8 +28,8 @@ the Projects page remains empty.
 ## Local development
 
 ```sh
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 ## GitHub Pages
