@@ -10,6 +10,17 @@
   src: url("/fonts/benne-web.woff2") format("woff2");
 }
 
+/* Metric-matched fallback: sizes/positions local Georgia to occupy the same
+   box as Benne, so the swap from fallback to webfont doesn't reflow the page. */
+@font-face {
+  font-family: "Benne Fallback";
+  src: local("Georgia");
+  size-adjust: 160.7%;
+  ascent-override: 47.04%;
+  descent-override: 21.16%;
+  line-gap-override: 0%;
+}
+
 :root {
   --paper: #ffffff;
   --ink: #383838;
@@ -34,7 +45,7 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: "Benne", Georgia, serif;
+  font-family: "Benne", "Benne Fallback", Georgia, serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 1.5;
