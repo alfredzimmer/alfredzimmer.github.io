@@ -11,29 +11,27 @@ const projects = (
 ---
 
 <SiteLayout
-    title="Projects"
-    description="Selected works by Alfred."
+    title="projects"
+    description="selected works"
     bodyClass="content-page"
 >
     <main class="page-main">
         <header class="page-heading">
-            <h1>Projects</h1>
-            <p>Some things I've worked on if you care to take a look.</p>
+            <h1>projects</h1>
+            <p>some things i worked on if you care to take a look</p>
         </header>
 
         <ol class="project-list">
-            {
-                projects.map((project) => (
-                    <li>
-                        <a href={project.data.url}>
-                            <span class="project-summary">
-                                <strong>{project.data.title}</strong>
-                                <span>{project.data.description}</span>
-                            </span>
-                        </a>
-                    </li>
-                ))
-            }
+            {projects.map((project) => (
+                <li>
+                    <a href={project.data.url}>
+                        <span class="project-summary">
+                            <strong>{project.data.title}</strong>
+                            <span>{project.data.description}</span>
+                        </span>
+                    </a>
+                </li>
+            ))}
         </ol>
     </main>
 </SiteLayout>
