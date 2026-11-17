@@ -86,11 +86,68 @@ body.home {
   font-style: italic;
 }
 
+.site-footer {
+  position: fixed;
+  z-index: 10;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+/* Hairline between the social links and the webring. */
+.site-footer::before {
+  content: "";
+  order: 1;
+  width: 1px;
+  height: 18px;
+  background: var(--line);
+}
+
+.webring {
+  order: 2;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.footer-links a {
+  display: flex;
+  color: var(--quiet);
+  text-decoration: none;
+  transition: color 120ms ease;
+}
+
+.footer-links a:hover {
+  color: var(--heading);
+}
+
+.footer-links svg {
+  width: 17px;
+  height: 17px;
+  fill: currentColor;
+}
+
+/* Lion is drawn as a mask so it takes the link's text color. */
+.webring-lion {
+  width: 26px;
+  height: 22px;
+  margin-top: -6px;
+  background: currentColor;
+  mask: url("/uwatering.svg") center / contain no-repeat;
+  -webkit-mask: url("/uwatering.svg") center / contain no-repeat;
+}
+
 .home-main {
   width: min(calc(100% - 48px), var(--reading-width));
   margin: 0 auto;
   height: 100svh;
-  padding: 154px 0 32px;
+  padding: 154px 0 80px;
 }
 
 .about-copy {
@@ -216,6 +273,10 @@ a:focus-visible {
 
   .site-nav nav {
     gap: 26px;
+  }
+
+  .site-footer {
+    bottom: 22px;
   }
 
   h1 {
